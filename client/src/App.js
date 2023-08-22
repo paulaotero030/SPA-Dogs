@@ -1,29 +1,25 @@
-import './App.css';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import React from 'react';
-import { useState } from 'react';
-import { Switch, Route } from 'react-router-dom';
-import Cards from './Component/Cards/Cards';
-import Nav from './Component/NavBar/Nav';
-import axios from 'axios';
+// import LandingPage from './components/LandingPage';
+// import Home from './components/Home';
+// import DogCreate from './components/DogCreate';
+// import Detail from './components/Detail';
+import './App.css';
+import Form from './Component/Form/Form';
 
 function App() {
-  const [dogs, setDogs] = useState([]);
-
-  const onSearch = (name) => {
-    axios(`http://localhost:3000/dogs/${name}`).then(({ data }) => {
-      if (data.name) {
-        setDogs((oldDogs) => [...oldDogs, data]);
-      } else {
-        alert('¡There are no dogs with that name!');
-      }
-    });
-  };
-
   return (
-    <div className='App'>
-      <h1>Henry Dogs</h1>
-      <Switch> </Switch>
-    </div>
+    <Router>
+      {' '}
+      <div className='App'>
+        {' '}
+        <h1>ACA PAULA LA MEJOR</h1>
+        <Form></Form> {/* <Route exact path='/' element={<LandingPage />} /> */}
+        {/* <Route path='/home' element={<Home />} /> */}
+        {/* <Route path='/dog' element={<DogCreate />} /> */}
+        {/* <Route path='/dog/:id' element={<Detail />} /> */}
+      </div>
+    </Router>
   );
 }
 
